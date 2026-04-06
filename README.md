@@ -8,11 +8,8 @@ The site highlights my experience in mechanical design, simulation, prototyping,
 
 Add your deployed site link here once GitHub Pages is live:
 
-[https://yourusername.github.io](https://yourusername.github.io)
+[https://vepix.github.io](https://vepix.github.io)
 
-Or, after connecting your custom domain:
-
-[https://victordong.com](https://victordong.com)
 
 ## About
 
