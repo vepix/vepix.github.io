@@ -3,769 +3,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Carter | Mechanical Engineer</title>
-  <meta name="description" content="Mechanical engineering portfolio featuring CAD, prototyping, FEA, and product design projects." />
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --text: #111827;
-      --muted: #5b6472;
-      --line: #d9dee7;
-      --accent: #1f6feb;
-      --accent-soft: #e8f0ff;
-      --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
-      --radius: 22px;
-      --max: 1120px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #f7f9fc 0%, #eef2f8 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(12px);
-      background: rgba(245, 247, 250, 0.82);
-      border-bottom: 1px solid rgba(217, 222, 231, 0.8);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.95rem 0;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      padding: 0.9rem 1.25rem;
-      font-weight: 600;
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-
-    .button.primary {
-      background: var(--text);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .button.primary:hover { transform: translateY(-1px); }
-
-    .button.secondary {
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.75);
-      color: var(--text);
-    }
-
-    .button.secondary:hover { background: white; }
-
-    .hero {
-      padding: 4.5rem 0 3rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .hero-copy, .hero-card, .card, .project-card, .about-card, .contact-card {
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(217, 222, 231, 0.95);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: 2.4rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      padding: 0.45rem 0.8rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    h1, h2, h3 { line-height: 1.1; margin: 0; }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 4.8rem);
-      letter-spacing: -0.05em;
-      margin-bottom: 1rem;
-    }
-
-    .hero-copy p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 62ch;
-      margin: 0 0 1.4rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.8rem;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .metric {
-      border-top: 1px solid var(--line);
-      padding-top: 1rem;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.45rem;
-      letter-spacing: -0.03em;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-card {
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .render {
-      background: linear-gradient(135deg, #dde7f5, #f9fbff);
-      border-radius: calc(var(--radius) - 8px);
-      padding: 1rem;
-      min-height: 360px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #e6ebf3;
-    }
-
-    .render svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .tag-list, .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .tag, .skill {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 0.45rem 0.8rem;
-      background: white;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    section {
-      padding: 1.5rem 0 3rem;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .section-head p {
-      margin: 0.5rem 0 0;
-      color: var(--muted);
-      max-width: 58ch;
-    }
-
-    .featured {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      min-height: 420px;
-    }
-
-    .slides {
-      display: flex;
-      transition: transform 0.35s ease;
-      height: 100%;
-    }
-
-    .slide {
-      min-width: 100%;
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background: linear-gradient(180deg, #f9fbff 0%, #eef3fa 100%);
-    }
-
-    .slide-visual {
-      flex: 1;
-      min-height: 280px;
-      border-radius: 18px;
-      border: 1px solid #dce3ef;
-      background: white;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-    }
-
-    .slide-caption {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .muted { color: var(--muted); }
-
-    .carousel-controls {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      display: flex;
-      gap: 0.65rem;
-    }
-
-    .icon-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.95);
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-
-    .project-card {
-      padding: 1.6rem;
-    }
-
-    .project-card h3 {
-      font-size: 1.7rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .project-card p { color: var(--muted); }
-
-    .details {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 1.2rem;
-    }
-
-    .detail {
-      background: #f9fbff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 0.9rem;
-    }
-
-    .detail strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-size: 0.94rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .card {
-      padding: 1.35rem;
-    }
-
-    .card h3 { margin-bottom: 0.55rem; }
-    .card p { margin: 0 0 1rem; color: var(--muted); }
-
-    .mini-visual {
-      height: 180px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: linear-gradient(135deg, #f9fbff, #edf3fb);
-      margin-bottom: 1rem;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .skill-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .about-card, .contact-card {
-      padding: 1.6rem;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    footer {
-      padding: 0 0 3rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .featured,
-      .project-grid,
-      .skill-panel,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .metrics,
-      .details {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .hero { padding-top: 3rem; }
-      .hero-copy, .hero-card, .project-card, .card, .about-card, .contact-card { padding: 1.2rem; }
-      .nav-inner { align-items: start; flex-direction: column; }
-      .nav-links { gap: 0.75rem; }
-      .metrics,
-      .details { grid-template-columns: 1fr; }
-      h1 { font-size: clamp(2.2rem, 12vw, 3.4rem); }
-      .section-head { align-items: start; flex-direction: column; }
-    }
-  </style>
+  <title>Victor Dong | Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Mechanical engineering portfolio of Victor Dong." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <div class="brand">Alex Carter — Mechanical Engineer</div>
+      <a href="index.html" class="brand">Victor Dong<small>Mechanical Engineering & Physics · Northeastern University</small></a>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="button secondary" href="#contact">Hire Me</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
+        <a href="assets/Victor_Dong_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
     </div>
   </nav>
-
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Product Design • CAD • Prototyping • FEA</div>
-        <h1>Designing mechanical systems that are manufacturable, testable, and built to perform.</h1>
-        <p>
-          I’m a mechanical engineer focused on product development, design for manufacturing, and rapid prototyping.
-          My work blends CAD, simulation, testing, and iteration to move concepts from sketch to validated hardware.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button secondary" href="#">Download Resume</a>
+  
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="panel hero-copy">
+      <div class="eyebrow">Mechanical Engineer · Simulation · FEA · Prototyping</div>
+      <h1>Designing high-performance mechanical systems from model to hardware.</h1>
+      <p class="lead">
+        I’m Victor Dong, a mechanical engineering and physics student at Northeastern University focused on
+        vehicle dynamics, multibody simulation, precision mechanisms, thermal design, and fabrication.
+        My work connects analysis with real-world validation — from Formula SAE models to machined hardware and test fixtures.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#projects">View Projects</a>
+        <a class="button secondary" href="assets/Victor_Dong_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <strong>4.0 GPA</strong>
+          <span>Mechanical Engineering & Physics at Northeastern</span>
         </div>
-        <div class="metrics">
-          <div class="metric">
-            <strong>12+</strong>
-            <span>prototypes built and tested</span>
-          </div>
-          <div class="metric">
-            <strong>18%</strong>
-            <span>weight reduction on recent assembly</span>
-          </div>
-          <div class="metric">
-            <strong>3</strong>
-            <span>core strengths: CAD, analysis, validation</span>
-          </div>
+        <div class="metric">
+          <strong>15-person team</strong>
+          <span>Led Formula SAE vehicle simulation group</span>
+        </div>
+        <div class="metric">
+          <strong>62% mass reduction</strong>
+          <span>Suspension redesign from 110 lb to 41 lb</span>
         </div>
       </div>
+    </div>
 
-      <div class="hero-card">
-        <div class="render" aria-label="Featured CAD-style illustration">
-          <svg viewBox="0 0 600 420" role="img" aria-hidden="true">
-            <defs>
-              <linearGradient id="plate" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffffff" />
-                <stop offset="100%" stop-color="#e7eef8" />
-              </linearGradient>
-              <linearGradient id="arm" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#d5dfef" />
-                <stop offset="100%" stop-color="#f8fbff" />
-              </linearGradient>
-            </defs>
-            <rect x="70" y="270" width="460" height="55" rx="16" fill="url(#plate)" stroke="#9aa9bf" stroke-width="3"/>
-            <rect x="110" y="110" width="90" height="155" rx="18" fill="url(#arm)" stroke="#7e8ca2" stroke-width="3"/>
-            <rect x="400" y="90" width="90" height="175" rx="18" fill="url(#arm)" stroke="#7e8ca2" stroke-width="3"/>
-            <rect x="175" y="130" width="255" height="38" rx="14" fill="#fefefe" stroke="#7e8ca2" stroke-width="3"/>
-            <rect x="205" y="183" width="195" height="34" rx="12" fill="#eef4fc" stroke="#7e8ca2" stroke-width="3"/>
-            <circle cx="150" cy="156" r="18" fill="#ffffff" stroke="#7e8ca2" stroke-width="3"/>
-            <circle cx="445" cy="140" r="18" fill="#ffffff" stroke="#7e8ca2" stroke-width="3"/>
-            <circle cx="120" cy="300" r="11" fill="#d3deef" stroke="#7e8ca2" stroke-width="3"/>
-            <circle cx="480" cy="300" r="11" fill="#d3deef" stroke="#7e8ca2" stroke-width="3"/>
-            <path d="M120 80 C180 45, 310 40, 455 70" fill="none" stroke="#1f6feb" stroke-width="4" stroke-dasharray="10 12" />
-            <path d="M225 246 L295 246 L315 270 L205 270 Z" fill="#fdfefe" stroke="#7e8ca2" stroke-width="3"/>
-          </svg>
-        </div>
+    <div class="panel visual-card">
+      <div class="render">
+        <svg viewBox="0 0 640 420" role="img" aria-label="Mechanical assembly illustration">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#e7eef8"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d6e0ef"/>
+              <stop offset="100%" stop-color="#f9fbff"/>
+            </linearGradient>
+          </defs>
+          <rect x="80" y="280" width="480" height="58" rx="16" fill="url(#g1)" stroke="#95a5bb" stroke-width="3"/>
+          <rect x="110" y="128" width="94" height="154" rx="18" fill="url(#g2)" stroke="#7f8ea4" stroke-width="3"/>
+          <rect x="430" y="98" width="94" height="184" rx="18" fill="url(#g2)" stroke="#7f8ea4" stroke-width="3"/>
+          <rect x="180" y="148" width="286" height="40" rx="14" fill="#ffffff" stroke="#7f8ea4" stroke-width="3"/>
+          <rect x="218" y="205" width="208" height="36" rx="12" fill="#eef4fc" stroke="#7f8ea4" stroke-width="3"/>
+          <circle cx="156" cy="176" r="18" fill="#ffffff" stroke="#7f8ea4" stroke-width="3"/>
+          <circle cx="474" cy="148" r="18" fill="#ffffff" stroke="#7f8ea4" stroke-width="3"/>
+          <circle cx="128" cy="310" r="11" fill="#d3deef" stroke="#7f8ea4" stroke-width="3"/>
+          <circle cx="512" cy="310" r="11" fill="#d3deef" stroke="#7f8ea4" stroke-width="3"/>
+          <path d="M124 88 C198 48, 348 42, 494 78" fill="none" stroke="#0f62fe" stroke-width="4" stroke-dasharray="10 12"/>
+          <path d="M232 248 L314 248 L338 280 L210 280 Z" fill="#fdfefe" stroke="#7f8ea4" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="chips">
+        <span class="chip">SolidWorks</span>
+        <span class="chip">Simulink</span>
+        <span class="chip">ANSYS FEA</span>
+        <span class="chip">Fusion 360 CAM</span>
+        <span class="chip">CNC & Welding</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
         <div>
-          <div class="tag-list">
-            <span class="tag">SolidWorks</span>
-            <span class="tag">GD&amp;T</span>
-            <span class="tag">Rapid Prototyping</span>
-            <span class="tag">DFM</span>
-            <span class="tag">Testing</span>
+          <h2>Selected projects</h2>
+          <p>Each card links to a separate project page, so your GitHub Pages site feels like a real portfolio rather than one long scroll.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <a class="project-card" href="projects/quadratic3d.html">
+          <div class="project-top">
+            <div class="mini-svg" style="height:100%">
+              <svg viewBox="0 0 500 280" aria-hidden="true">
+                <rect x="56" y="156" width="388" height="34" rx="10" fill="#edf3fb" stroke="#8a99af" stroke-width="3"/>
+                <rect x="92" y="96" width="90" height="60" rx="16" fill="#fff" stroke="#8a99af" stroke-width="3"/>
+                <rect x="318" y="78" width="94" height="78" rx="16" fill="#fff" stroke="#8a99af" stroke-width="3"/>
+                <path d="M182 126 H318" stroke="#0f62fe" stroke-width="4" stroke-dasharray="10 8"/>
+                <circle cx="120" cy="173" r="10" fill="#dbe5f3" stroke="#8a99af" stroke-width="3"/>
+                <circle cx="378" cy="173" r="10" fill="#dbe5f3" stroke="#8a99af" stroke-width="3"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Quadratic3D precision systems</h3>
+            <p>Precision actuator design, centrifuge-loaded glass validation, thermal enclosure modeling, optical stabilization, and CNC manufacturing.</p>
+            <div class="project-meta">
+              <span class="tag">Actuators</span>
+              <span class="tag">Thermal</span>
+              <span class="tag">FEA</span>
+              <span class="tag">Machining</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/vehicle-simulation.html">
+          <div class="project-top">
+            <div class="mini-svg" style="height:100%">
+              <svg viewBox="0 0 500 280" aria-hidden="true">
+                <rect x="74" y="48" width="352" height="182" rx="20" fill="#fff" stroke="#8a99af" stroke-width="3"/>
+                <path d="M110 186 C156 121, 230 104, 392 90" fill="none" stroke="#0f62fe" stroke-width="5"/>
+                <path d="M108 198 C164 142, 250 118, 392 112" fill="none" stroke="#8fb4f0" stroke-width="5" stroke-dasharray="8 8"/>
+                <line x1="160" y1="66" x2="160" y2="220" stroke="#d5deeb" stroke-width="2"/>
+                <line x1="250" y1="66" x2="250" y2="220" stroke="#d5deeb" stroke-width="2"/>
+                <line x1="340" y1="66" x2="340" y2="220" stroke="#d5deeb" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Formula SAE vehicle simulation</h3>
+            <p>Full-vehicle dynamics modeling in Simulink and Simscape Multibody for suspension, aero, tire, powertrain, and closed-loop driver behavior.</p>
+            <div class="project-meta">
+              <span class="tag">Vehicle Dynamics</span>
+              <span class="tag">Simulink</span>
+              <span class="tag">Controls</span>
+              <span class="tag">Lap Time</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/suspension-design.html">
+          <div class="project-top">
+            <div class="mini-svg" style="height:100%">
+              <svg viewBox="0 0 500 280" aria-hidden="true">
+                <path d="M80 200 H420" stroke="#8b99ad" stroke-width="4"/>
+                <rect x="120" y="138" width="66" height="62" rx="12" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
+                <rect x="218" y="104" width="66" height="96" rx="12" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
+                <rect x="316" y="124" width="66" height="76" rx="12" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
+                <path d="M116 82 C175 48, 254 42, 382 68" fill="none" stroke="#0f62fe" stroke-width="4" stroke-dasharray="8 9"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Electric Racing suspension design</h3>
+            <p>Lightweighted the suspension, defined geometry targets, created welding fixtures, and validated 49 components with FEA and GD&T.</p>
+            <div class="project-meta">
+              <span class="tag">Suspension</span>
+              <span class="tag">FEA</span>
+              <span class="tag">GD&T</span>
+              <span class="tag">Fixtures</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects/research-fabrication.html">
+          <div class="project-top">
+            <div class="mini-svg" style="height:100%">
+              <svg viewBox="0 0 500 280" aria-hidden="true">
+                <rect x="78" y="76" width="344" height="126" rx="18" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
+                <circle cx="166" cy="138" r="26" fill="#eef3fb" stroke="#8b99ad" stroke-width="3"/>
+                <circle cx="334" cy="138" r="26" fill="#eef3fb" stroke="#8b99ad" stroke-width="3"/>
+                <path d="M106 208 H396" stroke="#0f62fe" stroke-width="4" stroke-dasharray="8 8"/>
+              </svg>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Research & fabrication projects</h3>
+            <p>Agricultural robotics design and a custom Voron-style FDM printer showing breadth in field-ready hardware and motion systems.</p>
+            <div class="project-meta">
+              <span class="tag">Robotics</span>
+              <span class="tag">3D Printing</span>
+              <span class="tag">Fusion 360</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Technical capabilities</h2>
+          <p>This section reflects the emphasis in your resume: modeling, simulation, fabrication, and rigorous engineering execution.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="panel card">
+          <h3>Simulation & analysis</h3>
+          <p>High-fidelity multibody modeling, SolidWorks / ANSYS FEA, lap time simulation, structural analysis, thermal modeling, and controls-oriented system analysis.</p>
+          <div class="skill-list">
+            <span class="skill">Simulink</span>
+            <span class="skill">Simscape Multibody</span>
+            <span class="skill">SolidWorks FEA</span>
+            <span class="skill">ANSYS FEA</span>
+            <span class="skill">Fusion 360 FEA</span>
+            <span class="skill">MATLAB</span>
+            <span class="skill">Python</span>
+          </div>
+        </div>
+        <div class="panel card">
+          <h3>Design & fabrication</h3>
+          <p>CAD, CAM, machining, welding, prototyping, and tolerancing with a strong focus on translating concepts into validated physical systems.</p>
+          <div class="skill-list">
+            <span class="skill">SolidWorks</span>
+            <span class="skill">Fusion 360 CAD/CAM</span>
+            <span class="skill">HSMWorks CAM</span>
+            <span class="skill">CNC milling</span>
+            <span class="skill">Manual lathe / mill</span>
+            <span class="skill">TIG welding</span>
+            <span class="skill">Laser cutting</span>
+            <span class="skill">SLA / FDM printing</span>
+            <span class="skill">GD&T</span>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section id="projects">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Featured project</h2>
-            <p>A clean carousel works perfectly on a static site. Replace these placeholder visuals with CAD renders, test photos, and exploded views.</p>
-          </div>
-        </div>
-
-        <div class="featured">
-          <div class="carousel">
-            <div class="slides" id="slides">
-              <article class="slide">
-                <div class="slide-visual">
-                  <svg viewBox="0 0 500 280" width="100%" height="100%" aria-hidden="true">
-                    <rect x="40" y="150" width="420" height="36" rx="10" fill="#edf3fb" stroke="#8898b0" stroke-width="3" />
-                    <rect x="85" y="100" width="110" height="54" rx="14" fill="#ffffff" stroke="#8898b0" stroke-width="3" />
-                    <rect x="305" y="82" width="110" height="72" rx="14" fill="#ffffff" stroke="#8898b0" stroke-width="3" />
-                    <path d="M195 127 H305" stroke="#1f6feb" stroke-width="4" stroke-dasharray="10 9" />
-                    <circle cx="110" cy="168" r="10" fill="#d9e4f4" stroke="#8898b0" stroke-width="3" />
-                    <circle cx="390" cy="168" r="10" fill="#d9e4f4" stroke="#8898b0" stroke-width="3" />
-                  </svg>
-                </div>
-                <div class="slide-caption">
-                  <div>
-                    <strong>Concept CAD</strong>
-                    <div class="muted">Early assembly architecture for compact test fixture</div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="slide">
-                <div class="slide-visual">
-                  <svg viewBox="0 0 500 280" width="100%" height="100%" aria-hidden="true">
-                    <rect x="80" y="50" width="340" height="180" rx="18" fill="#f8fbff" stroke="#8898b0" stroke-width="3" />
-                    <path d="M115 190 C170 120, 240 100, 385 88" fill="none" stroke="#1f6feb" stroke-width="5" />
-                    <path d="M120 200 C165 150, 250 120, 380 110" fill="none" stroke="#8eb2ef" stroke-width="5" stroke-dasharray="7 8" />
-                    <line x1="150" y1="70" x2="150" y2="220" stroke="#d0d8e7" stroke-width="2" />
-                    <line x1="250" y1="70" x2="250" y2="220" stroke="#d0d8e7" stroke-width="2" />
-                    <line x1="350" y1="70" x2="350" y2="220" stroke="#d0d8e7" stroke-width="2" />
-                  </svg>
-                </div>
-                <div class="slide-caption">
-                  <div>
-                    <strong>Simulation &amp; load path review</strong>
-                    <div class="muted">Communicating stiffness and force distribution decisions</div>
-                  </div>
-                </div>
-              </article>
-
-              <article class="slide">
-                <div class="slide-visual">
-                  <svg viewBox="0 0 500 280" width="100%" height="100%" aria-hidden="true">
-                    <rect x="60" y="155" width="380" height="30" rx="10" fill="#edf3fb" stroke="#8898b0" stroke-width="3" />
-                    <rect x="110" y="90" width="60" height="65" rx="12" fill="#ffffff" stroke="#8898b0" stroke-width="3" />
-                    <rect x="200" y="70" width="60" height="85" rx="12" fill="#ffffff" stroke="#8898b0" stroke-width="3" />
-                    <rect x="290" y="100" width="60" height="55" rx="12" fill="#ffffff" stroke="#8898b0" stroke-width="3" />
-                    <circle cx="130" cy="170" r="8" fill="#d9e4f4" stroke="#8898b0" stroke-width="3" />
-                    <circle cx="370" cy="170" r="8" fill="#d9e4f4" stroke="#8898b0" stroke-width="3" />
-                    <path d="M100 225 H390" stroke="#1f6feb" stroke-width="4" stroke-dasharray="9 10"/>
-                  </svg>
-                </div>
-                <div class="slide-caption">
-                  <div>
-                    <strong>Prototype iteration</strong>
-                    <div class="muted">Printed and tested to improve assembly alignment</div>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="carousel-controls">
-              <button class="icon-btn" id="prev" aria-label="Previous slide">←</button>
-              <button class="icon-btn" id="next" aria-label="Next slide">→</button>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <h3>Compact fixture redesign</h3>
-            <p>
-              Redesigned a benchtop fixture to improve stiffness, reduce mass, and simplify assembly.
-              The project combined CAD iteration, tolerance review, prototype validation, and design-for-manufacturing decisions.
-            </p>
-            <div class="details">
-              <div class="detail">
-                <strong>Problem</strong>
-                Reduce weight and improve repeatability without increasing part count.
-              </div>
-              <div class="detail">
-                <strong>Role</strong>
-                Led concept generation, CAD modeling, prototype fabrication, and test planning.
-              </div>
-              <div class="detail">
-                <strong>Tools</strong>
-                SolidWorks, caliper-based inspection, 3D printing, Excel test logging.
-              </div>
-              <div class="detail">
-                <strong>Outcome</strong>
-                18% lighter assembly and faster alignment during bench setup.
-              </div>
-            </div>
-          </div>
-        </div>
+  <section id="about">
+    <div class="container grid-2">
+      <div class="panel card about">
+        <h2>About</h2>
+        <p>
+          Victor Dong is a Boston-based mechanical engineering and physics student at Northeastern University with experience spanning
+          race car systems, precision mechanism design, thermal and structural analysis, and hands-on fabrication.
+        </p>
+        <p>
+          His portfolio emphasizes measurable outcomes, technical rigor, and the ability to move between simulation, design, manufacturing,
+          and physical validation.
+        </p>
       </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Selected work</h2>
-            <p>Keep this section to three strong projects. Hiring managers usually prefer depth and clarity over a giant gallery.</p>
-          </div>
+      <div class="panel card">
+        <h2>Contact</h2>
+        <p class="muted">Ready for internships, research, and engineering roles where modeling, mechanical design, and prototyping intersect.</p>
+        <div class="hero-actions" style="margin-top:1rem;margin-bottom:0;">
+          <a class="button primary" href="mailto:dong.vic@northeastern.edu">dong.vic@northeastern.edu</a>
+          <a class="button secondary" href="https://victordong.com" target="_blank" rel="noopener">victordong.com</a>
         </div>
-
-        <div class="project-grid">
-          <article class="card">
-            <div class="mini-visual">
-              <svg viewBox="0 0 260 180" width="100%" height="100%" aria-hidden="true">
-                <rect x="36" y="120" width="188" height="20" rx="8" fill="#eef3fb" stroke="#8b99ad" stroke-width="3"/>
-                <rect x="58" y="78" width="42" height="42" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <rect x="112" y="62" width="42" height="58" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <rect x="166" y="88" width="42" height="32" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-              </svg>
-            </div>
-            <h3>Drone payload mount</h3>
-            <p>Designed a lightweight mount with quick-change fastening and improved vibration management.</p>
-            <div class="tag-list">
-              <span class="tag">CAD</span>
-              <span class="tag">DFM</span>
-              <span class="tag">Fasteners</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="mini-visual">
-              <svg viewBox="0 0 260 180" width="100%" height="100%" aria-hidden="true">
-                <rect x="48" y="42" width="164" height="96" rx="18" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <circle cx="94" cy="90" r="18" fill="#eef3fb" stroke="#8b99ad" stroke-width="3"/>
-                <circle cx="166" cy="90" r="18" fill="#eef3fb" stroke="#8b99ad" stroke-width="3"/>
-                <path d="M62 130 H198" stroke="#1f6feb" stroke-width="4" stroke-dasharray="8 8"/>
-              </svg>
-            </div>
-            <h3>Thermal enclosure concept</h3>
-            <p>Balanced packaging, airflow, and manufacturability for an electronics enclosure concept.</p>
-            <div class="tag-list">
-              <span class="tag">Thermal</span>
-              <span class="tag">Packaging</span>
-              <span class="tag">Sheet Metal</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="mini-visual">
-              <svg viewBox="0 0 260 180" width="100%" height="100%" aria-hidden="true">
-                <path d="M52 124 H208" stroke="#8b99ad" stroke-width="4"/>
-                <rect x="72" y="90" width="36" height="34" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <rect x="112" y="65" width="36" height="59" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <rect x="152" y="80" width="36" height="44" rx="10" fill="#fff" stroke="#8b99ad" stroke-width="3"/>
-                <path d="M72 52 C102 34, 144 28, 188 42" fill="none" stroke="#1f6feb" stroke-width="4" stroke-dasharray="8 8"/>
-              </svg>
-            </div>
-            <h3>Test stand upgrade</h3>
-            <p>Improved access, sensor integration, and repeatability for a lab-scale validation setup.</p>
-            <div class="tag-list">
-              <span class="tag">Testing</span>
-              <span class="tag">Instrumentation</span>
-              <span class="tag">Fixtures</span>
-            </div>
-          </article>
-        </div>
+        <p class="resume-note" style="margin-top:1rem;">Boston, MA · (973) 868-0504</p>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Skills &amp; tools</h2>
-            <p>Use the exact tools and methods you want recruiters to see. Keep it honest and focused.</p>
-          </div>
-        </div>
-
-        <div class="skill-panel">
-          <div class="about-card">
-            <h3>Engineering skills</h3>
-            <div class="skill-list" style="margin-top: 1rem;">
-              <span class="skill">3D CAD modeling</span>
-              <span class="skill">Design for manufacturing</span>
-              <span class="skill">GD&amp;T</span>
-              <span class="skill">Tolerance analysis</span>
-              <span class="skill">Rapid prototyping</span>
-              <span class="skill">Fixture design</span>
-              <span class="skill">Mechanical testing</span>
-              <span class="skill">Failure analysis</span>
-              <span class="skill">BOM creation</span>
-              <span class="skill">Technical drawings</span>
-            </div>
-          </div>
-
-          <div class="about-card">
-            <h3>Software</h3>
-            <div class="skill-list" style="margin-top: 1rem;">
-              <span class="skill">SolidWorks</span>
-              <span class="skill">Fusion 360</span>
-              <span class="skill">ANSYS / FEA</span>
-              <span class="skill">MATLAB</span>
-              <span class="skill">Python</span>
-              <span class="skill">Excel</span>
-              <span class="skill">AutoCAD</span>
-              <span class="skill">KeyShot</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about-grid">
-        <article class="about-card">
-          <h2>About</h2>
-          <p class="muted">
-            I’m a mechanical engineer interested in product development, electromechanical systems, and prototype-driven design.
-            I enjoy translating vague design goals into practical hardware through careful modeling, testing, and iteration.
-          </p>
-          <p class="muted">
-            This sample site is intentionally simple: a clean layout, measurable project outcomes, and visual space for your CAD renders and prototype photos.
-          </p>
-        </article>
-
-        <article class="contact-card" id="contact">
-          <h2>Contact</h2>
-          <p class="muted">Replace these placeholders with your actual info and links.</p>
-          <div class="contact-links">
-            <a class="button primary" href="mailto:alex.carter@email.com">Email Me</a>
-            <a class="button secondary" href="#">LinkedIn</a>
-            <a class="button secondary" href="#">GitHub</a>
-            <a class="button secondary" href="#">Resume PDF</a>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">© 2026 Alex Carter. Built as a static portfolio for GitHub Pages.</div>
+  <footer class="footer">
+    <div class="container">Built as a static multi-page portfolio for GitHub Pages.</div>
   </footer>
-
-  <script>
-    const slides = document.getElementById('slides');
-    const nextBtn = document.getElementById('next');
-    const prevBtn = document.getElementById('prev');
-    const totalSlides = slides.children.length;
-    let index = 0;
-
-    function updateCarousel() {
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      index = (index + 1) % totalSlides;
-      updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      index = (index - 1 + totalSlides) % totalSlides;
-      updateCarousel();
-    });
-  </script>
 </body>
 </html>
