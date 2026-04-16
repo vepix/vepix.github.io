@@ -104,7 +104,7 @@ section{padding:1.5rem 0 3rem}
 }
 .project-card:hover{transform:translateY(-2px)}
 .project-top{
-  height:220px;padding:1rem;background:linear-gradient(135deg,#f7faff,#eaf1fb);
+  height:260px;padding:1rem;background:linear-gradient(135deg,#f7faff,#eaf1fb);
   border-bottom:1px solid var(--line);
 }
 .project-body{padding:1.35rem}
@@ -132,11 +132,137 @@ section{padding:1.5rem 0 3rem}
 @media (max-width: 980px){
   .hero-grid,.feature-grid,.grid-2,.grid-3{grid-template-columns:1fr}
 }
+.about-copy p:first-of-type{margin-top:.8rem}
 @media (max-width: 680px){
+  .about-header{flex-direction:column;align-items:flex-start}
+  .about-photo{width:96px;height:96px}
   .nav-inner{flex-direction:column;align-items:flex-start}
   .hero{padding-top:3rem}
   .hero-copy,.visual-card,.card,.project-body,.project-summary{padding:1.2rem}
   .metrics,.kpi-list,.stat-grid{grid-template-columns:1fr}
   h1{font-size:clamp(2.2rem,11vw,3.8rem)}
   .section-head{flex-direction:column;align-items:flex-start}
+}
+
+
+.about-header{
+  display:flex;
+  align-items:flex-start;
+  gap:1.1rem;
+}
+
+.about-photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position: center 20%;
+  flex-shrink:0;
+  border:3px solid rgba(255,255,255,.95);
+  box-shadow:0 8px 18px rgba(16,24,40,.10);
+}
+
+.about-copy{
+  min-width:0;
+}
+.about-copy p:first-of-type{
+  margin-top:.8rem;
+}
+.hero-copy h1{
+  font-size:clamp(2rem,4.5vw,3.6rem);
+}
+
+.hero-photo-wrap{
+  padding:0;
+  overflow:hidden;
+}
+
+.hero-photo{
+  width:100%;
+  height:100%;
+  min-height:380px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  border-radius:calc(var(--radius) - 10px);
+}
+
+.hero-highlights{
+  display:grid;
+  gap:.75rem;
+  margin-top:1rem;
+}
+
+.hero-highlight{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:.4rem 1rem;
+}
+
+.hero-highlight strong{
+  display:block;
+  font-size:1rem;
+  margin-bottom:.2rem;
+}
+
+.hero-highlight span{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+.project-image-wrap{
+  overflow:hidden;
+  border-radius:18px;
+  background:#fff;
+}
+
+.project-image{
+  width:100%;
+  height:100%;
+  display:block;
+  border-radius:18px;
+  background:#fff;
+}
+
+.project-image--contain{
+  object-fit:contain;
+}
+
+.project-image--cover{
+  object-fit:cover;
+}
+
+.sim-image{
+  object-position:center 20%;
+}
+
+.suspension-image{
+  object-position:center 40%;
+}
+
+.robotics-image{
+  object-position:center;
+}
+
+.voron-image{
+  object-position:center 45%;
+}
+
+#projects,
+#skills,
+#about{
+  scroll-margin-top: 80px;
+}
+
+.software-image{
+  object-position:center 20%;
+}
+
+.manufacturing-image{
+  object-position:center 40%;
+}
+
+.vex-image{
+  object-position:center 35%;
 }

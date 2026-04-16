@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEX Robotics Competition | Victor Dong</title>
+  <meta name="description" content="VEX Robotics competition project page for Victor Dong." />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="brand">Victor Dong<small>Mechanical Engineering &amp; Physics · Northeastern University</small></a>
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#skills">Capabilities</a>
+        <a href="../index.html#about">About</a>
+        <a href="../assets/Victor_Dong_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs"><a href="../index.html">Home</a> / VEX Robotics Competition</div>
+      <div class="feature-grid">
+        <div class="panel project-summary">
+          <div class="eyebrow">Competition Robotics · Spin Up 2022–2023</div>
+          <h1 style="font-size:clamp(2.2rem,5vw,4rem);">VEX Robotics Competition</h1>
+          <p class="lead">
+            Iteratively designed a competition robot for VEX Spin Up, balancing turreted shooting,
+            drivetrain performance, autonomous accuracy, and endgame expansion systems as the game
+            strategy evolved through the season.
+          </p>
+          <div class="tag-list" style="margin-top:1rem;">
+            <span class="tag">Robotics</span>
+            <span class="tag">Mechanism Design</span>
+            <span class="tag">Autonomous</span>
+            <span class="tag">Odometry</span>
+            <span class="tag">Iteration</span>
+            <span class="tag">Competition</span>
+          </div>
+          <div class="back"><a class="button ghost" href="../index.html#projects">← Back to projects</a></div>
+        </div>
+
+        <div class="panel visual-card">
+          <div class="render hero-photo-wrap">
+            <img src="../assets/vex-robotics.jpg" alt="VEX Robotics competition robot" class="hero-photo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container grid-2">
+        <div class="panel card">
+          <h2>What this project involved</h2>
+
+          <div class="bullet"><div class="dot"></div><div>Started the season with a turreted disc shooter that could automatically aim regardless of robot heading.</div></div>
+          <div class="bullet"><div class="dot"></div><div>Scaled back turret range and later removed the turret entirely when mass, drivetrain heating, and changing match strategy made mobility more valuable.</div></div>
+          <div class="bullet"><div class="dot"></div><div>Reallocated power by removing the turret and one flywheel motor, then adding two more motors to the drivetrain for faster and more defensive play.</div></div>
+          <div class="bullet"><div class="dot"></div><div>Improved autonomous consistency by making odometry wheels more rigid, then later used a two-wheel odometry setup because the center-locked drive did not need horizontal displacement tracking.</div></div>
+          <div class="bullet"><div class="dot"></div><div>Developed intake and expansion mechanisms for more reliable scoring and stronger endgame field coverage, including a blocking expansion to interfere with opposing robots.</div></div>
+        </div>
+
+        <div class="panel card">
+          <h2>Key takeaways</h2>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>Turret tradeoff</strong>
+              <span class="muted">The turret worked mechanically, but weight and thermal limits made it a poor fit for the full system.</span>
+            </div>
+            <div class="stat">
+              <strong>Drivetrain-first redesign</strong>
+              <span class="muted">The robot was simplified to improve agility and support a more defensive strategy as the season evolved.</span>
+            </div>
+            <div class="stat">
+              <strong>Autonomous refinement</strong>
+              <span class="muted">Odometry tuning and drivetrain refinement improved state-level and world-level autonomous performance.</span>
+            </div>
+            <div class="stat">
+              <strong>Competition outcome</strong>
+              <span class="muted">State Excellence Award, a top-10 autonomous routine at Worlds, and a top-60 overall world placement.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-2">
+        <div class="panel card">
+          <h2>Design evolution</h2>
+          <p>
+            The earliest version of the robot centered on a turret mechanism that could automatically
+            aim discs at the target without depending on robot heading. While the concept was successful,
+            it made the robot too heavy and reduced mobility in a game that rewarded speed and field coverage.
+            As the strategy shifted toward more defensive play and closer-range shots, the turret became less practical.
+            The design was first simplified and then removed entirely.
+          </p>
+        </div>
+
+        <div class="panel card">
+          <h2>Autonomous &amp; controls</h2>
+          <p>
+            After the drivetrain-focused redesign, the robot was prepared for state championships with
+            stiffer odometry wheel mounting to improve autonomous position tracking. Later world-championship
+            iterations used two odometry wheels instead of three because the center-locked drive did not require
+            horizontal displacement tracking, letting the system stay simpler while improving reliability.
+          </p>
+        </div>
+
+        <div class="panel card">
+          <h2>Mechanisms</h2>
+          <p>
+            Beyond the shooter and drivetrain, the robot used an intake to move discs into the flywheel and
+            an expansion mechanism that deployed projectiles attached to strings to touch more tiles during the
+            endgame. A blocking expansion mechanism was also developed to interfere with other teams' expansion systems,
+            showing a broader emphasis on both scoring and strategic control.
+          </p>
+        </div>
+
+        <div class="panel card">
+          <h2>Outcome</h2>
+          <p>
+            The final robot performed strongly in competition. The state-level autonomous program contributed to an
+            Excellence Award, and later world-championship performance included a 15-second autonomous routine that
+            ranked in the top 10 in the world with an alliance partner. The team ultimately placed in the top 60 at Worlds.
+            As a portfolio project, this is valuable because it shows early experience with system tradeoffs, iterative redesign,
+            competition-driven engineering decisions, and mechanism development under changing constraints.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>Designed and built by Victor Dong</div>
+      <div>Boston, MA</div>
+    </div>
+  </footer>
+</body>
+</html>
